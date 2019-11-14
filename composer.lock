@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fa503b104f700e4337a4bf209a56bc8a",
+    "content-hash": "78d85f3972dc3710c18e9e2e529968ec",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -2894,6 +2894,45 @@
                 "environment"
             ],
             "time": "2019-09-10T21:37:39+00:00"
+        },
+        {
+            "name": "zedisdog/laravel-schema-extend",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zedisdog/laravel-schema-extend.git",
+                "reference": "02b41c094c3853cc593511b3c7d067de2bd6a1ce"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zedisdog/laravel-schema-extend/zipball/02b41c094c3853cc593511b3c7d067de2bd6a1ce",
+                "reference": "02b41c094c3853cc593511b3c7d067de2bd6a1ce",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^5.0|^6.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.0|^6.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Jialeo\\LaravelSchemaExtend\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "WTFPL"
+            ],
+            "authors": [
+                {
+                    "name": "zed",
+                    "email": "2692273254@qq.com"
+                }
+            ],
+            "description": "supplement for eloquent migration",
+            "time": "2019-09-05T09:14:22+00:00"
         }
     ],
     "packages-dev": [
