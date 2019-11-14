@@ -14,10 +14,11 @@ class CreateTableAnswerAward extends Migration
     public function up()
     {
         Schema::create('answer_award', function (Blueprint $table) {
+            $table->engine = 'Innodb';
             $table->bigIncrements('id');
-            $table->integer('bureau_id')->comment('局部id');
+            $table->integer('bureau_id')->index('bureau_id')->comment('局部id');
             $table->integer('award')->comment('奖励积分');
-            $table->integer('uid')->comment('奖励的用户');
+            $table->integer('uid')->index('uid')->comment('奖励的用户');
             $table->enum('status', ['success', 'failure'])->default('success')->comment('挑战状态');
             $table->enum('type', ['single', 'pk'])->comment('单人挑战和pk赛事');
             $table->tinyInteger('ranking')->comment('奖励名次');

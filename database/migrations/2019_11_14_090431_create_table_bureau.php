@@ -14,6 +14,7 @@ class CreateTableBureau extends Migration
     public function up()
     {
         Schema::create('bureau', function (Blueprint $table) {
+            $table->engine = 'Innodb';
             $table->integerIncrements('id');
             $table->string('title');
             $table->integer('cont_down')->default(10)->comment('倒计时秒');

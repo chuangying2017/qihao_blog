@@ -14,6 +14,7 @@ class CreateTableBureauQuestion extends Migration
     public function up()
     {
         Schema::create('bureau_question', function (Blueprint $table) {
+            $table->engine = 'Innodb';
             $table->integer('bureau_id');
             $table->integer('choice_question_id');
         });
