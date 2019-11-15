@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTableIntegralShopping extends Migration
+class CreateTableIntegralBanner extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateTableIntegralShopping extends Migration
      */
     public function up()
     {
-        Schema::create('integral_shopping', function (Blueprint $table) {
+        Schema::create('integral_banner', function (Blueprint $table) {
             $table->engine = 'Innodb';
-            $table->bigIncrements('id');
-            $table->integer('uid')->comment('用户id');
-            $table->integer('product_id')->comment('商品关系id');
-            $table->json('parameter')->comment('规格参数');
+            $table->integerIncrements('id');
+            $table->string('title');
+            $table->string('url')->nullable()->comment('点击图片url');
+            $table->string('image_path')->nullable()->comment('图片路径');
             $table->bigInteger('createtime');
             $table->bigInteger('updatetime');
         });
@@ -31,6 +31,6 @@ class CreateTableIntegralShopping extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('integral_shopping');
+        Schema::dropIfExists('integral_banner');
     }
 }
