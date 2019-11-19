@@ -24,7 +24,7 @@ class CreateTableIntegralProduct extends Migration
             $table->integer('remain_num')->comment('剩余数量');
             $table->string('describe')->nullable()->comment('商品简介');
             $table->json('specification')->nullable()->comment('商品规格');
-
+            $table->enum('status', ['active','inactive','discard'])->default('active')->comment('商品状态');
 
             $table->bigInteger('createtime');
             $table->bigInteger('updatetime')->nullable();

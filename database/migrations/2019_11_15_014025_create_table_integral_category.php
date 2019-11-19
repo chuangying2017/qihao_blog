@@ -18,8 +18,8 @@ class CreateTableIntegralCategory extends Migration
             $table->engine = 'Innodb';
             $table->bigIncrements('id');
             $table->string('title');
-            $table->integer('pid')->comment('父类id');
-            $table->string('path')->comment('路径');
+            $table->integer('pid')->nullable()->comment('父类id');
+            $table->string('path')->nullable()->comment('路径');
             $table->bigInteger('createtime');
             $table->bigInteger('updatetime');
         });
