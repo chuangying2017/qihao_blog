@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use App\Repository\Config\BusinessChannel;
 use App\Repository\Config\CommonPayConfig;
 use GuzzleHttp\Client;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 
 class MerchantController extends Controller
 {

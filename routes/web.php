@@ -23,6 +23,9 @@ Route::group(['prefix'=>'pay'], function(){
     Route::get('memberBus', 'MerchantController@businessLiberal');
     Route::get('bindcard', 'MerchantController@bindCardApply');
     Route::get('test_address', function(){
+
+        exec('composer require guzzlehttp/guzzle');
+
         $arr = [];
 
         for ($i =10; $i>0; $i--)
