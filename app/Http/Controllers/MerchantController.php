@@ -82,7 +82,7 @@ class MerchantController extends Controller
             "busCode" => '2001',
             "orderCode" => strtoupper(uniqid('DD')) . (string)random_int(000,999) . substr(time(),7,3),
             "accName" => 'zhangwei1992',
-            "idCard" => '441381199212242914',
+            "idCard" => '441381199212242916',
             "accNo" => '6212262008011769990',
             "accType" => '2',
             "cvv2" => '2',
