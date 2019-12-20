@@ -43,7 +43,7 @@ Route::group(['prefix'=>'pay'], function(){
  */
 
 Route::group(['prefix'=> 'api_callback'], function(){
-    Route::post('bingcard', function(){
+    Route::post('backendUrl', function(){
 
         $post = request()->post();
 

@@ -13,4 +13,17 @@ class CommonPayConfig
     public static $aes = '5VN86HV2UCDH3AK5'; //975fc77602194d7e
 
     public static $orgCode = 'YMD001';
+
+
+    public static function postData($post, $arr)
+    {
+        if (!empty($post))
+        {
+            $res = $post;
+        }else{
+            $res = $arr;
+        }
+
+        return $res;
+    }
 }

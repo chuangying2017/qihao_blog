@@ -44,6 +44,7 @@ class PayTestController extends Controller
            'idCard'=>'441381199212242916', //身份证号
            'accNo'=>'6212262008011769990', //支付卡号
            'mobile'=>'13059551109', //手机号
+           'callBackUrl' => 'http://dh.c.020wl.cn/api_callback/backendUrl', //后台回调地址
        ];
 
        $url = CommonPayConfig::$url . 'interface/quickPay';

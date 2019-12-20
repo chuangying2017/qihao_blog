@@ -42,6 +42,8 @@ class MerchantController extends Controller
             "settleAccType" => '1'
         ];
 
+        $arr = CommonPayConfig::postData(request()->post(), $arr);
+
         $res = $this->businessChannel->verifyData($url, $arr);
 
         dump($res);
@@ -63,6 +65,8 @@ class MerchantController extends Controller
             "chMerCode" => 'C030019121938004',
             "busCode" => 2001
         ];
+
+        $arr = CommonPayConfig::postData(request()->post(), $arr);
 
         $res = $this->businessChannel->verifyData($url, $arr);
 
@@ -89,11 +93,43 @@ class MerchantController extends Controller
             "cvv2" => '460',
             "validityDate" => date('mY'),
             "mobile" => '13922706311',
-            "callBackUrl" => 'http://http://dh.c.020wl.cn/api_callback/bindcard'
+            "callBackUrl" => 'http://http://dh.c.020wl.cn/api_callback/backendUrl'
         ];
+
+        $arr = CommonPayConfig::postData(request()->post(), $arr);
 
         $res = $this->businessChannel->verifyData($url, $arr);
 
         dump($res);
+    }
+
+    /**
+     * 解绑卡
+     */
+    public function parseBindCard()
+    {
+        $url = CommonPayConfig::$url . 'interface/unbindCard';
+
+        $arr = [
+            "verCode" => '1001',
+            "chMerCode" => 'C030019121938004',
+            "busCode" => '2001',
+            "accNo" => '528856003853'
+        ];
+
+        $arr = CommonPayConfig::postData(request()->post(), $arr);
+
+        $res = $this->businessChannel->verifyData($url, $arr);
+
+        dump($res);
+    }
+
+
+    /**
+     * 绑卡异步通知
+     */
+    public function bindCardAsyncNotify()
+    {
+
     }
 }
