@@ -22,6 +22,16 @@ Route::group(['prefix'=>'pay'], function(){
     Route::get('register', 'MerchantController@register');
     Route::get('memberBus', 'MerchantController@businessLiberal');
     Route::get('bindcard', 'MerchantController@bindCardApply');
+    Route::get('test_address', function(){
+        $arr = [];
+
+        for ($i =10; $i>0; $i--)
+        {
+            array_push($arr, $i);
+        }
+
+        dd($arr);
+    });
 });
 
 
