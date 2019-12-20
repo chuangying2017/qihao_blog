@@ -70,4 +70,31 @@ class MerchantController extends Controller
 
         dump($res);
     }
+
+    /**
+     * 绑卡 申请
+     */
+    public function bindCardApply()
+    {
+        $url = CommonPayConfig::$url . 'interface/bindCardApply';
+
+        $arr = [
+            "verCode" => '1001',
+            "chMerCode" => 'C030019121938004',
+            "busCode" => '2001',
+            "orderCode" => strtoupper(uniqid('DD')) . (string)random_int(000,999) . substr(time(),7,3),
+            "accName" => 'zhangwei1992',
+            "idCard" => '441381199212242914',
+            "accNo" => '6212262008011769990',
+            "accType" => '2',
+            "cvv2" => '2',
+            "validityDate" => date('mY'),
+            "mobile" => '13059551109',
+            "callBackUrl" => 'http://http://dh.c.020wl.cn/api_callback/bindcard'
+        ];
+
+        $res = $this->businessChannel->verifyData($url, $arr);
+
+        dump($res);
+    }
 }

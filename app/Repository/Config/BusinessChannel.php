@@ -161,7 +161,7 @@ class BusinessChannel
             'signData'      =>  $sign,
         );
 
-        Log::info('保存注册商户信息',$arr);
+        Log::info('保存信息',$arr);
 
         $response = $this->curl_post($url, $reqData);
 
@@ -171,7 +171,7 @@ class BusinessChannel
 
         $resDataJson = json_decode($resData,true);
 
-        Log::info($resDataJson);
+        Log::info('响应信息', $resDataJson);
         //验签
         $bool = $this->checkSign($result['signData'],$resDataJson, CommonPayConfig::$md5);
 

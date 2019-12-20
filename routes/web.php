@@ -11,6 +11,31 @@
 |
 */
 
+use Illuminate\Support\Facades\Log;
+
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::group(['prefix'=>'pay'], function(){
+    Route::get('test_post', 'PayTestController@pay_test');
+    Route::get('register', 'MerchantController@register');
+    Route::get('memberBus', 'MerchantController@businessLiberal');
+    Route::get('bindcard', 'MerchantController@bindCardApply');
+});
+
+
+/**
+ * 支付回调地址
+ */
+
+Route::group(['prefix'=> 'api_callback'], function(){
+    Route::post('bingcard', function(){
+
+        $post = request()->post();
+
+        Log::info('绑卡回调', $post);
+
+        return ["status"=>'success'];
+    });
 });
