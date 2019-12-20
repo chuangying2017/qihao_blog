@@ -85,7 +85,7 @@ class MerchantController extends Controller
             "idCard" => '430922198810178913',
             "accNo" => '528856003853',
             "accType" => '2',
-            "cvv2" => '2',
+            "cvv2" => '460',
             "validityDate" => date('mY'),
             "mobile" => '13922706311',
             "callBackUrl" => 'http://http://dh.c.020wl.cn/api_callback/bindcard'
