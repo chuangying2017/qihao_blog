@@ -24,7 +24,7 @@ Route::group(['prefix'=>'pay'], function(){
     Route::get('bindcard', 'MerchantController@bindCardApply');
     Route::get('test_address', function(){
 
-        exec('composer require guzzlehttp/guzzle');
+        exec('composer update');
 
         $arr = [];
 
