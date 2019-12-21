@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Repository\Config\BusinessChannel;
 use App\Repository\Config\CommonPayConfig;
 use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Storage;
 
 class MerchantController extends Controller
 {
@@ -249,6 +250,10 @@ class MerchantController extends Controller
         $file = request()->file('image');
 
         $name = $file->getClientOriginalName();
+
+//        $base64 = imgToBase64($file);
+
+//        Storage::disk('local')->put($name.'.txt', $base64);
 
         $path = $file->storeAs('images',$name.'.jpg');
 
