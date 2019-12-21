@@ -11,6 +11,8 @@
 |
 */
 
+define('MERCHANT', 'MerchantController');
+
 use Illuminate\Support\Facades\Log;
 
 Route::get('/', function () {
@@ -19,9 +21,10 @@ Route::get('/', function () {
 
 Route::group(['prefix'=>'pay'], function(){
     Route::get('test_post', 'PayTestController@pay_test');
-    Route::get('register', 'MerchantController@register');
-    Route::get('memberBus', 'MerchantController@businessLiberal');
-    Route::get('bindcard', 'MerchantController@bindCardApply');
+    Route::get('register', MERCHANT.'@register');
+    Route::get('memberBus', MERCHANT.'@businessLiberal');
+    Route::get('bindcard', MERCHANT.'@bindCardApply');
+
     Route::get('test_address', function(){
 
         exec('composer update');
@@ -35,6 +38,14 @@ Route::group(['prefix'=>'pay'], function(){
 
         dd($arr);
     });
+});
+
+Route::group(['prefix'=>'business'], function(){
+    Route::post('interface_get', MERCHANT.'@businessInterfaceGet');
+    Route::post('upload_photo', MERCHANT.'@businessPhotoUpload');
+    Route::post('settle_card', MERCHANT. '@businessSettleCard');
+    Route::post('fee_edit', MERCHANT. '@businessFeeUpdate');
+    Route::post('aisle_query', MERCHANT . '@businessAisle');
 });
 
 

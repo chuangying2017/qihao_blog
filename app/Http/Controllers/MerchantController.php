@@ -132,4 +132,109 @@ class MerchantController extends Controller
     {
 
     }
+
+    /**
+     * 商户业务开通接口查询
+     */
+    public function businessAisle()
+    {
+        $url = CommonPayConfig::$url . 'interface/memberBusQuery';
+
+        $arr = [
+            "verCode" => '1001',
+            "chMerCode" => 'C030019121938004'
+        ];
+
+        $arr = CommonPayConfig::postData(request()->post(), $arr);
+
+        $res = $this->businessChannel->verifyData($url, $arr);
+
+        dump($res);
+    }
+
+    /**
+     * 商户业务费率修改接口
+     */
+    public function businessFeeUpdate()
+    {
+        $url = CommonPayConfig::$url . 'interface/rateModify';
+
+        $arr = [
+            "verCode" => '',
+            "chMerCode" => '',
+            "busCode" => '',
+            "drawFee" => '',
+            "tradeRate" => '',
+            "T1FeeRate" => ''
+        ];
+
+        $arr = CommonPayConfig::postData(request()->post(), $arr);
+
+        $res = $this->businessChannel->verifyData($url, $arr);
+
+        dump($res);
+    }
+
+    /**
+     * 商户结算卡修改接口
+     */
+    public function businessSettleCard()
+    {
+        $url = CommonPayConfig::$url . 'interface/bankCardModify';
+
+        $arr = [
+            "verCode" => '',
+            "chMerCode" => '',
+            "accountName" => '', //真实姓名和结算户名必须一致
+            "accountNo" => '', //仅为储蓄卡
+            "reservedMobile" => '', //结算卡的预留手机号
+        ];
+
+        $arr = CommonPayConfig::postData(request()->post(), $arr);
+
+        $res = $this->businessChannel->verifyData($url, $arr);
+
+        dump($res);
+    }
+
+    /**
+     * 商户照片上传接口
+     */
+    public function businessPhotoUpload()
+    {
+        $url = CommonPayConfig::$url . 'imp/photoUpload';
+
+        $arr = [
+            "verCode" => '',
+            "chMerCode" => '',
+            "busCode" => '',
+            "photoType" => '',
+            "photoData" => '',
+        ];
+
+        $arr = CommonPayConfig::postData(request()->post(), $arr);
+
+        $res = $this->businessChannel->verifyData($url, $arr);
+
+        dump($res);
+    }
+
+    /**
+     * 商户接口信息查询
+     */
+    public function businessInterfaceGet()
+    {
+        $url = CommonPayConfig::$url . 'interface/memberQuery';
+
+        $arr = [
+            "verCode" => '',
+            "chMerCode" => ''
+        ];
+
+        $arr = CommonPayConfig::postData(request()->post(), $arr);
+
+        $res = $this->businessChannel->verifyData($url, $arr);
+
+        dump($res);
+    }
 }
