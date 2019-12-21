@@ -204,12 +204,16 @@ class MerchantController extends Controller
     {
         $url = CommonPayConfig::$url . 'imp/photoUpload';
 
+        $filename = '701d58baa1af9733cc2aeaaec1c245d.jpg';
+
+        $base64 = imgToBase64($filename);
+
         $arr = [
-            "verCode" => '',
-            "chMerCode" => '',
-            "busCode" => '',
-            "photoType" => '',
-            "photoData" => '',
+            "verCode" => '1001',
+            "chMerCode" => 'C030019121938004',
+            "busCode" => '2001',
+            "photoType" => '2',
+            "photoData" => $base64,
         ];
 
         $arr = CommonPayConfig::postData(request()->post(), $arr);
@@ -236,5 +240,22 @@ class MerchantController extends Controller
         $res = $this->businessChannel->verifyData($url, $arr);
 
         return response()->json($res);
+    }
+
+    public function test_file_upload()
+    {
+        $post = request()->post();
+
+        $file = request()->file('image');
+
+        $name = $file->getClientOriginalName();
+
+        $path = $file->storeAs('images',$name.'.jpg');
+
+        return response()->json([
+            'status'=>'success',
+            'path' => $path,
+            'data' => $post
+        ]);
     }
 }

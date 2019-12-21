@@ -13,6 +13,7 @@
 
 define('MERCHANT', 'MerchantController');
 
+use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Log;
 
 Route::get('/', function () {
@@ -62,4 +63,62 @@ Route::group(['prefix'=> 'api_callback'], function(){
 
         return ["status"=>'success'];
     });
+});
+
+Route::post('business/testfileupload', MERCHANT.'@test_file_upload');
+
+
+Route::get('test_file', function(){
+
+    $filename = 'E:\\project\\newspider\\images_src\full\\';
+
+    $filename .= '0e4148d6b0ede9f682bef27001073846935c80ee.jpg';
+
+    $filesize = filesize($filename);
+
+    $open = fopen($filename, 'r');
+
+//    $read = fread($open, $filesize);
+
+
+    $client = new Client();
+
+    $data = $client->post('http://www.qihao2019.com/business/testfileupload',[
+//        'headers' => [
+//            'Content-Type' => 'multipart/form-data; boundary=----WebKitFormBoundarybXVrd1DKuIIXDn5J',
+//            'Accept' => 'application/json, text/javascript, */*; q=0.01'
+//        ],
+       'multipart' => [
+           [
+               'name'     => 'image',
+               'contents' => $open,
+               'filename' => 'image'.substr(time(),5,5)
+           ],
+           [
+               'name' => 'cate_id',
+               'contents' => '2',
+               'headers'  => ['X-Baz' => 'bar']
+           ],
+           [
+               'name' => 'verCode',
+               'contents' => '1001',
+           ],
+           [
+               'name' => 'chMerCode',
+               'contents' => 'C030019121938004'
+           ],
+           [
+               'name' => 'busCode',
+               'contents' => '2001'
+           ],
+           [
+               'name' => 'photoType',
+               'contents' => '2'
+           ]
+       ]
+    ]);
+
+//    fclose($open);
+
+    dump($data);
 });

@@ -4,7 +4,7 @@
 namespace App\Repository\Config;
 
 
-class CommonPayConfig
+class CommonPayConfig implements Common
 {
     public static $url = 'https://test_tran.verajft.com/fusionPosp/';
 
