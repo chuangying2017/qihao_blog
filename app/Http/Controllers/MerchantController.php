@@ -46,7 +46,7 @@ class MerchantController extends Controller
 
         $res = $this->businessChannel->verifyData($url, $arr);
 
-        dump($res);
+        return response()->json($res);
     }
 
     /**
@@ -70,7 +70,7 @@ class MerchantController extends Controller
 
         $res = $this->businessChannel->verifyData($url, $arr);
 
-        dump($res);
+        return response()->json($res);
     }
 
     /**
@@ -100,7 +100,7 @@ class MerchantController extends Controller
 
         $res = $this->businessChannel->verifyData($url, $arr);
 
-        dump($res);
+        return response()->json($res);
     }
 
     /**
@@ -121,7 +121,7 @@ class MerchantController extends Controller
 
         $res = $this->businessChannel->verifyData($url, $arr);
 
-        dump($res);
+        return response()->json($res);
     }
 
 
@@ -149,7 +149,7 @@ class MerchantController extends Controller
 
         $res = $this->businessChannel->verifyData($url, $arr);
 
-        dump($res);
+        return response()->json($res);
     }
 
     /**
@@ -172,7 +172,7 @@ class MerchantController extends Controller
 
         $res = $this->businessChannel->verifyData($url, $arr);
 
-        dump($res);
+        return response()->json($res);
     }
 
     /**
@@ -194,7 +194,7 @@ class MerchantController extends Controller
 
         $res = $this->businessChannel->verifyData($url, $arr);
 
-        dump($res);
+        return response()->json($res);
     }
 
     /**
@@ -216,7 +216,7 @@ class MerchantController extends Controller
 
         $res = $this->businessChannel->verifyData($url, $arr);
 
-        dump($res);
+        return response()->json($res);
     }
 
     /**
@@ -235,6 +235,6 @@ class MerchantController extends Controller
 
         $res = $this->businessChannel->verifyData($url, $arr);
 
-        dump($res);
+        return response()->json($res);
     }
 }
